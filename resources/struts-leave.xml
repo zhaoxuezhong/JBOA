@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="leave" namespace="/" extends="default">
+		<action name="searchBizLeave" class="com.zxz.action.BizLeaveAction" method="searchBizLeave">
+			<result>/jsp/leave/leave_list.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="getBizLeaveById" class="com.zxz.action.BizLeaveAction" method="getBizLeaveById">
+			<result name="showDetail">/jsp/leave/leave_view.jsp</result>
+			<result name="check">/jsp/leave/leave_check.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>	
+		<action name="toSaveBizLeave" class="com.zxz.action.BizLeaveAction" method="toSaveBizLeave">
+			<result>/jsp/leave/leave_edit.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="leave_*" class="com.zxz.action.BizLeaveAction" method="{1}">
+			<result type="redirectAction">searchBizLeave</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!-- <action name="checkLeave" class="com.zxz.action.BizLeaveAction" method="checkLeave">
+			<result>/jsp/leave/leave_list.jsp</result>
+			<result name="error">error.jsp</result>
+		</action> -->
+	</package>
+</struts>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 常量 -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<constant name="struts.ui.theme" value="simple" />
+		
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="checkUser" class="com.zxz.interceptor.CheckUser"/>
+			<interceptor-stack name="stack">
+				<interceptor-ref name="checkUser"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="stack"/>
+		<global-results>
+			<result name="error" type="redirect">error.jsp</result>
+			<result name="login" type="redirect">login.jsp</result>
+		</global-results>
+		
+	</package>
+	
+	<package name="random" namespace="/" extends="struts-default">
+		<!-- Random验证码 -->
+		<action name="random" class="com.zxz.action.RandomAction" method="random">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+	</package>
+	<include file="struts-employee.xml" />
+	<include file="struts-claimvoucher.xml" />
+	<include file="struts-leave.xml"/>
+	<include file="struts-claimvoucherstatistics.xml"/>
+	<include file="struts-claimvouyearstatistics.xml"/>
+	<include file="struts-exportdataexcel.xml"/>
+</struts>

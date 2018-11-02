@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="claimvoucher" namespace="/" extends="default">
+		<action name="saveBizClaimVoucher" class="com.zxz.action.BizClaimVoucherAction"
+			method="saveBizClaimVoucher">
+			<result type="redirectAction">searchBizClaimVoucher</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/jsp/claim/claim_voucher_edit.jsp</result>
+		</action>
+		<action name="searchBizClaimVoucher" class="com.zxz.action.BizClaimVoucherAction"
+			method="searchBizClaimVoucher">
+			<result>/jsp/claim/claim_voucher_list.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/jsp/claim/claim_voucher_list.jsp</result>
+		</action>
+		<action name="searchBizClaimVoucherById" class="com.zxz.action.BizClaimVoucherAction"
+			method="searchBizClaimVoucherById">
+			<result name="update">/jsp/claim/claim_voucher_update.jsp</result>
+			<result name="showDetail">/jsp/claim/claim_voucher_view.jsp</result>
+			<result name="check">/jsp/claim/claim_voucher_check.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="claimvoucher_*" class="com.zxz.action.BizClaimVoucherAction"
+			method="{1}">
+			<result name="success" type="redirectAction">searchBizClaimVoucher</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<!-- <action name="deleteBizClaimVoucher" class="com.zxz.action.BizClaimVoucherAction"
+			method="deleteBizClaimVoucher">
+			<result name="success" type="redirectAction">searchBizClaimVoucher</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="saveBizCheckResult" class="com.zxz.action.BizClaimVoucherAction"
+			method="saveBizCheckResult">
+			<result name="success" type="redirectAction">searchBizClaimVoucher</result>
+			<result name="error">/error.jsp</result>
+		</action> -->
+	</package>
+</struts>

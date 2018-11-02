@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="ClaimVouyearStatistics" namespace="/" extends="default">
+		<action name="searchBizClaimVouyearStatistics" class="com.zxz.action.BizClaimVouyearStatisticsAction" method="searchBizClaimVouyearStatistics">
+			<result>jsp/statistics/compYearStatistics_list.jsp</result>
+			<result name="detail">jsp/statistics/compYearStatistics_detail.jsp</result>
+			<result name="dept">jsp/statistics/deptYearStatistics_list.jsp</result>
+		</action>
+		<action name="getBizClaimVouyearStatisticsByYear" class="com.zxz.action.BizClaimVouyearStatisticsAction" method="getBizClaimVouyearStatisticsByYear">
+			<result name="dept">jsp/statistics/deptYearStatistics_detail.jsp</result>
+		</action>
+	</package>
+</struts>
